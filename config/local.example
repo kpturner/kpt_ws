@@ -1,0 +1,125 @@
+/**
+ * Local environment settings
+ *
+ * Use this file to specify configuration settings for use while developing
+ * the app on your personal system: for example, this would be a good place
+ * to store database or email passwords that apply only to you, and shouldn't
+ * be shared with others in your organization.
+ *
+ * These settings take precedence over all other config files, including those
+ * in the env/ subfolder.
+ *
+ * PLEASE NOTE:
+ *		local.js is included in your .gitignore, so if you're using git
+ *		as a version control solution for your Sails app, keep in mind that
+ *		this file won't be committed to your repository!
+ *
+ *		Good news is, that means you can specify configuration for your local
+ *		machine in this file without inadvertently committing personal information
+ *		(like database passwords) to the repo.  Plus, this prevents other members
+ *		of your team from commiting their local configuration changes on top of yours.
+ *
+ *    In a production environment, you probably want to leave this file out
+ *    entirely and leave all your settings in env/production.js
+ *
+ *
+ * For more information, check out:
+ * http://sailsjs.org/#!/documentation/anatomy/myApp/config/local.js.html
+ */
+
+var winston = require('winston');
+ 
+module.exports = {
+
+   /***************************************************************************
+   	* RNS settings for the IBMi toolkit when running on a non-IBMi platform   *
+   	***************************************************************************/
+	rns:	{
+		idataq: 		require("path").join("..","..","api","os400","node4","xstoolkit","lib","idataq"), 
+		itoolkit: 		require("path").join("..","..","api","os400","node4","xstoolkit","lib","itoolkit"), 
+		dqwait:			30,
+		conn: {
+			user:		"FOO",
+			password:	"BAR",
+			options:	{
+				host:	"rnsdev",
+				port:	8888,
+				path:	"/cgi-bin/xmlcgi.pgm",
+			},
+		},		
+	},
+
+	// The example below uses a self-signed certificate (.pfx) converted to a key.pem and 
+	// cert.pem file using openssl as follows (assumes mytest.pfx)
+	// (info source is https://wiki.cac.washington.edu/display/infra/Extracting+Certificate+and+Private+Key+Files+from+a+.pfx+File):
+	// "openssl pkcs12 -in mytest.pfx -nocerts -out key.pem -nodes"
+	// "openssl pkcs12 -in mytest.pfx -nokeys -out cert.pem"
+	// also did this but didn't use the resulting file
+	// "openssl rsa -in key.pem -out server.key"		
+	ssl: (
+		(process.env.RNS_SSLMODE=="1")? 	{
+											//ca:  require('fs').readFileSync(__dirname + '/ssl/my_apps_ssl_gd_bundle.crt'),
+											key: require('fs').readFileSync(__dirname + '/ssl/key.pem'),
+											cert: require('fs').readFileSync(__dirname + '/ssl/cert.pem')   		
+										}
+									:{}
+	),
+		
+  /***************************************************************************
+   * Logging required                                                        *
+   ***************************************************************************/			
+	log: {
+		colors: false,  // To get clean logs without prefixes or colour codings
+	    custom: new winston.Logger({
+	        transports: [
+	                     new(winston.transports[process.env.RNS_LOGTRANSPORT || "Console"])({
+	                        level: process.env.RNS_LOGLEVEL || 'debug',
+	                     	filename: process.env.RNS_LOGFILE || './logs/rns-sails-service.log'
+	                     }),
+	                 ],
+	             }),
+	},		
+
+  /***************************************************************************
+   * The `port` setting determines which TCP port your app will be           *
+   * deployed on.                                                            *
+   *                                                                         *
+   ***************************************************************************/
+	port: ((process.env.RNS_SSLMODE=="1")
+			?(process.env.RNS_SSLPORT)?process.env.RNS_SSLPORT:9696
+			:(process.env.RNS_PORT)?process.env.RNS_PORT:8686
+	),
+	sslmode: ((process.env.RNS_SSLMODE=="1")?true:false),
+	
+	
+	/***************************************************************************
+	 *                                                                          *
+	 * How and whether Sails will attempt to automatically rebuild the          *
+	 * tables/collections/etc. in your schema.                                  *
+	 *                                                                          *
+	 * See http://sailsjs.org/#!/documentation/concepts/ORM/model-settings.html  *
+	 *                                                                          *
+	 ***************************************************************************/	
+	models: {migrate: process.env.RNS_MIGRATE || 'drop'},
+	
+  /***************************************************************************
+   * The runtime "environment" of your Sails app is either typically         *
+   * 'development' or 'production'.                                          *
+   *                                                                         *
+   * In development, your Sails app will go out of its way to help you       *
+   * (for instance you will receive more descriptive error and               *
+   * debugging output)                                                       *
+   *                                                                         *
+   * In production, Sails configures itself (and its dependencies) to        *
+   * optimize performance. You should always put your app in production mode *
+   * before you deploy it to a server.  This helps ensure that your Sails    *
+   * app remains stable, performant, and scalable.                           *
+   *                                                                         *
+   * By default, Sails sets its environment using the `NODE_ENV` environment *
+   * variable.  If NODE_ENV is not set, Sails will run in the                *
+   * 'development' environment.                                              *
+   ***************************************************************************/
+
+   // environment: process.env.NODE_ENV || 'development'
+
+};

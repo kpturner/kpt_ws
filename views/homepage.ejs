@@ -1,0 +1,41 @@
+<!-- Default home page (dashboard) --> 
+ 
+<div ng-app="AppModule" ng-cloak ng-controller="AppController">
+
+	<div id="rns-main-container" class="rns-main-container">
+		
+		<img id="rns-background-logo" src="/rns/img/renaissance-header.png"/>
+					
+		<div id="main" class="ui-widget-content">
+		
+		
+			<div class=" col-md-8 col-md-offset-2">
+			
+		      <div class="jumbotron">
+		        <h1>RNS Web Socket Statistics</h1>
+		        
+		        	<h2>Status:             {{status}}</h2>
+		        	<h2>Connected remotes:  {{stats.totalRemotes}}</h2>
+		            <h2>Connected sockets:  {{stats.totalSockets}}</h2>
+			        <h2>Total updates:      {{stats.totalUpdates}}</h2>
+			        <h2>Updates per second: {{stats.updatesPerSecond}}</h2>
+					<h2>Queue size:         {{stats.queueSize}}</h2>
+			        <h2>Feeds:</h2>
+			        <textarea type="text" class="feeds" name="feeds" ng-model="feedDta" rows="8"></textarea> 
+					<h2>Log:</h2>
+					<textarea type="text" class="log" name="log" ng-model="logDta" rows="16"></textarea> 
+			  </div>
+		    </div>
+		
+		
+		</div>
+		
+		
+	</div>
+	
+	<div id="rns-tooltips">
+		<div class="rns-errortooltip"></div>
+	</div>
+
+
+</div>
