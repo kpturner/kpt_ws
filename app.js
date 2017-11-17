@@ -10,7 +10,7 @@
 //--  File:         app.js       
 //--  Description:  RNS RML services                                        
 //--  Author:       Kevin Turner                                      
-//--  Date:         2015                          
+//--  Date:         Sept 2017                  
 //------------------------------------------------------------ 
 // 
 // Modification log

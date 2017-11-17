@@ -10,7 +10,7 @@
 //--  File:         shutdown.js                   
 //--  Description:  Shutdown web socket server                                        
 //--  Author:       Kevin Turner                                      
-//--  Date:         Oct 2016                                
+//--  Date:         Sept 2017                       
 //------------------------------------------------------------ 
 // 
 // Modification log

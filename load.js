@@ -10,7 +10,7 @@
 //--  File:         load.js                   
 //--  Description:  When running this function will add a new connection to the server at a rate of 1 per 100ms                                        
 //--  Author:       Kevin Turner                                      
-//--  Date:         Dec 2016                                
+//--  Date:         Sept 2017                           
 //------------------------------------------------------------ 
 // 
 // Modification log

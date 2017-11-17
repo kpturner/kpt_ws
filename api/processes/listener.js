@@ -1,5 +1,5 @@
 //-- ***** BEGIN LICENCE BLOCK *****
-// - Copyright (c) 2005-2016 CoralTree Systems Ltd.    
+// - Copyright (c) 2017 K P Turner Ltd   
 // - All Rights Reserved.                            
 // - ***** END LICENCE BLOCK *****  
 
@@ -7,7 +7,7 @@
 //--  File:         listener.js               
 //--  Description:  This tiny node app will listen for entries on a queue and pass them to the process that spawned (forked) it                  
 //--  Author:       Kevin Turner                                      
-//--  Date:         Aug 2015                              
+//--  Date:         Sept 2017                      
 //------------------------------------------------------------ 
 // 
 // Modification log

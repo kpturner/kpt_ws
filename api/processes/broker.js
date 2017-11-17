@@ -1,5 +1,5 @@
 //-- ***** BEGIN LICENCE BLOCK *****
-// - Copyright (c) 2005-2016 CoralTree Systems Ltd.    
+// - Copyright (c) 2017 K P Turner Ltd   
 // - All Rights Reserved.                            
 // - ***** END LICENCE BLOCK *****  
 
@@ -10,7 +10,7 @@
 //--                use a broker to throttle data wen it arrives to prevent the main server being overwhelmed. Without
 //--                this the main server can get quite slow in responding to new connection requests during busy times                  
 //--  Author:       Kevin Turner                                      
-//--  Date:         Nov 2016                        
+//--  Date:         Sept 2017                     
 //------------------------------------------------------------ 
 // 
 // Modification log

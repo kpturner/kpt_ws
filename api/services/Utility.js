@@ -3,13 +3,13 @@
 /* Systems Ltd: http://www.coraltreesystems.com      */ 
 /*                                                   */
 /* Portions created by "CoralTree Systems Ltd" are   */
-/* Copyright (c) 2005-2016 CoralTree Systems Ltd.    */
+/* Copyright (c) 2017 K P Turner Ltd   */
 /* All Rights Reserved.                              */
 /***** END LICENCE BLOCK *****************************/   
 
 /**     
  *   @Class         service.Utility 
- *   @Description   Renaissance Utilities                  
+ *   @Description   Web Socket Server Utilities                  
  *   @Author        Kevin Turner                                            
  *   @Date          Jan 2016                                                         
  */

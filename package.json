@@ -2,7 +2,7 @@
   "name": "rnssails",
   "private": true,
   "version": "0.0.0",
-  "description": "Renaissance web socket server",
+  "description": "Web Socket Server web socket server",
   "keywords": [],
   "dependencies": {
     "ejs": "^2.5.5",

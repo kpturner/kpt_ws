@@ -10,7 +10,7 @@
 //--  File:         ping.js              
 //--  Description:  Ping websocket server for responsiveness                                        
 //--  Author:       Kevin Turner                                      
-//--  Date:         Oct 2016                                
+//--  Date:         Sept 2017                       
 //------------------------------------------------------------ 
 // 
 // Modification log
