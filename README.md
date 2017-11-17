@@ -1,4 +1,4 @@
-# KPT Web Sockets
+# KPT Web Socket Server
 
 A [Sails](http://sailsjs.org) application by Kevin Turner - 2016.
 
