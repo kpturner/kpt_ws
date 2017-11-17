@@ -1,6 +1,6 @@
 # KPT Web Socket Server
 
-A [Sails](http://sailsjs.org) application by Kevin Turner - 2016.
+A [Sails](http://sailsjs.org) application by Kevin Turner - 2017.
 
 This web socket server will push events from an IBMi data queue to listeners on a client.
 
